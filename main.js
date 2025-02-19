@@ -18,6 +18,7 @@ if (savegame !== null) {
     gameData = savegame
   }
   //setup some stuff that sets values after updates
+  renderNumbers()
 }
 
 function renderNumbers() {
