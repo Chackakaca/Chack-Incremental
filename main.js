@@ -27,7 +27,7 @@ if (savegame !== null) {
 
   function getOrbs() {
     gameData.orbs += gameData.orbsPerClick //you should probably figure out how to divide this and make it NOT ugly
-    document.getElementById("chackOrbs").innerHTML = gameData.orbs + " Chack Orbs"
+    renderNumbers()
   }
 
 function upgradeOrbsPerClick() {
@@ -35,8 +35,7 @@ function upgradeOrbsPerClick() {
         gameData.orbs -= gameData.orbsPerClickCost
         gameData.orbsPerClick += 1
         gameData.orbsPerClickCost *= 2
-        document.getElementById("chackOrbs").innerHTML = gameData.orbs + " Chack Orbs"
-        document.getElementById("perClickUpgrade").innerHTML = "Upgrade Summoning Circle | Cost: " + gameData.orbsPerClickCost
+        renderNumbers()
     }
 }
 
