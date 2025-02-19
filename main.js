@@ -46,9 +46,14 @@ function saveGame() {
     localStorage.setItem("chackIncrementalSave", JSON.stringify(gameData))
 }
 
+function deleteSave() {
+    localStorage.setItem("chackIncrementalSave", null)
+    location.reload()
+}
+
 var saveGameLoop = window.setInterval(function() {
     saveGame()
-  }, 15000)
+  }, 10000)
 
 var mainGameLoop = window.setInterval(function() {
     getOrbs()
