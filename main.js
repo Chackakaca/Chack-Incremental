@@ -24,7 +24,7 @@ function saveGame() {
     localStorage.setItem("chackIncrementalSave", JSON.stringify(gameData))
 }
 
-var savegame = JSON.parse(localStorage.getItem("goldMinerSave"))
+var savegame = JSON.parse(localStorage.getItem("chackIncrementalSave"))
 if (savegame !== null) {
   if (savegame.version == gameData.version) {
     gameData = savegame
