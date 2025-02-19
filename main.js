@@ -5,6 +5,10 @@ var gameData = {
     orbsPerClickCost: 10
   }
 
+function renderNumbers() {
+    document.getElementById("chackOrbs").innerHTML = gameData.orbs + " Chack Orbs"
+    document.getElementById("perClickUpgrade").innerHTML = "Upgrade Summoning Circle | Cost: " + gameData.orbsPerClickCost
+}
 
 
 function loadGame() {
@@ -19,13 +23,6 @@ if (savegame !== null) {
   }
   //setup some stuff that sets values after updates
   renderNumbers()
-}
-
-function renderNumbers() {
-    document.getElementById("chackOrbs").innerHTML = gameData.orbs + " Chack Orbs"
-    document.getElementById("perClickUpgrade").innerHTML = "Upgrade Summoning Circle | Cost: " + gameData.orbsPerClickCost
-}
-
 }
 
   function getOrbs() {
