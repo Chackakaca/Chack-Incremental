@@ -20,6 +20,10 @@ function upgradeOrbsPerClick() {
     }
 }
 
+function saveGame() {
+    localStorage.setItem("chackIncrementalSave", JSON.stringify(gameData))
+}
+
 var savegame = JSON.parse(localStorage.getItem("goldMinerSave"))
 if (savegame !== null) {
   if (savegame.version == gameData.version) {
@@ -33,7 +37,7 @@ if (savegame !== null) {
 }
 
 var saveGameLoop = window.setInterval(function() {
-    localStorage.setItem("chackIncrementalSave", JSON.stringify(gameData))
+    saveGame()
   }, 15000)
 
 var mainGameLoop = window.setInterval(function() {
