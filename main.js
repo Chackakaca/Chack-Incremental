@@ -5,6 +5,10 @@ var gameData = {
     orbsPerClickCost: 10
   }
 
+function renderNumbers() {
+    document.getElementById("chackOrbs").innerHTML = gameData.orbs + " Chack Orbs"
+    document.getElementById("perClickUpgrade").innerHTML = "Upgrade Summoning Circle | Cost: " + gameData.orbsPerClickCost
+}
 
 
 function loadGame() {
@@ -18,18 +22,12 @@ if (savegame !== null) {
     gameData = savegame
   }
   //setup some stuff that sets values after updates
-}
-
-function renderNumbers() {
-    document.getElementById("chackOrbs").innerHTML = gameData.orbs + " Chack Orbs"
-    document.getElementById("perClickUpgrade").innerHTML = "Upgrade Summoning Circle | Cost: " + gameData.orbsPerClickCost
-}
-
+  renderNumbers()
 }
 
   function getOrbs() {
     gameData.orbs += gameData.orbsPerClick //you should probably figure out how to divide this and make it NOT ugly
-    document.getElementById("chackOrbs").innerHTML = gameData.orbs + " Chack Orbs"
+    renderNumbers()
   }
 
 function upgradeOrbsPerClick() {
@@ -37,8 +35,7 @@ function upgradeOrbsPerClick() {
         gameData.orbs -= gameData.orbsPerClickCost
         gameData.orbsPerClick += 1
         gameData.orbsPerClickCost *= 2
-        document.getElementById("chackOrbs").innerHTML = gameData.orbs + " Chack Orbs"
-        document.getElementById("perClickUpgrade").innerHTML = "Upgrade Summoning Circle | Cost: " + gameData.orbsPerClickCost
+        renderNumbers()
     }
 }
 
@@ -46,9 +43,14 @@ function saveGame() {
     localStorage.setItem("chackIncrementalSave", JSON.stringify(gameData))
 }
 
+function deleteSave() {
+    localStorage.setItem("chackIncrementalSave", null)
+    location.reload()
+}
+
 var saveGameLoop = window.setInterval(function() {
     saveGame()
-  }, 15000)
+  }, 10000)
 
 var mainGameLoop = window.setInterval(function() {
     getOrbs()
