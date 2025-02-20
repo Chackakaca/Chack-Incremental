@@ -24,7 +24,7 @@ if (savegame !== null) {
   //setup some stuff that sets values after updates
   renderNumbers()
 }
-
+}
   function getOrbs() {
     gameData.orbs += gameData.orbsPerClick //you should probably figure out how to divide this and make it NOT ugly
     renderNumbers()
